@@ -29,7 +29,9 @@ $(function() {
 
     var sentences = text.split(/\.\s+/),
         shuffledSentences = shuffle(sentences),
-        paragraphs = "<p>" + shuffledSentences.join(".</p><p>") + "</p>";
+        paragraphs = shuffledSentences.map(function(sentence) {
+          return "<p>" + sentence + ".</p>";
+        });
 
     $sentences.html(paragraphs);
   });
