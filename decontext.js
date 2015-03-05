@@ -7,13 +7,16 @@ $(function() {
 
     return array;
   },
+  randomNumber = function(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  },
   shuffle = function(array) {
     var randomRemainingIndex;
 
-    array.forEach(function(_, index) {
-      randomRemainingIndex = Math.floor(Math.random() * index);
+    for (var index = 0; index < array.length; index++) {
+      randomRemainingIndex = randomNumber(index, array.length);
       swapItems(array, index, randomRemainingIndex);
-    });
+    }
 
     return array;
   };
